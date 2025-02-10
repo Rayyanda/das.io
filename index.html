@@ -33,16 +33,19 @@
         <div class="navbar-collapse collapse d-lg-flex" id="navbarsExample11">
           <a class="navbar-brand col-lg-3 me-0" href="#"></a>
           
-          <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+          <ul class="navbar-nav col-lg-6 justify-content-lg-end">
             <li class="nav-item">
-              <a class="nav-link active fs-5" id="home-button" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" id="home-button" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5" id="properties-button" href="#properties">Produk Kami</a>
+              <a class="nav-link" id="properties-button" href="#properties">Produk Kami</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5" id="contact-button" href="#contact">Kontak Kami</a>
+              <a class="nav-link" id="about-button" href="#about">Tentang Kami</a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" id="contact-button" href="#contact">Kontak Kami</a>
+            </li> -->
             <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -69,18 +72,18 @@
     <section id="home" class="" >
         <div class="container py-5 main-hero">
             <div class="row align-items-center ">
-              <div class="col-md-6 d-flex flex-column">
-                <h3 class="text-white fs-1">
-                  Dynamic Artha Sejahtera
-                </h3>
-                <p class="fs-5 text-hero text-white">
+              <div class="col-md-5 d-flex flex-column">
+                <h1 class="text-white title-hero">
+                  Find your own heaven with your family
+                </h1>
+                <!-- <p class="fs-5 text-hero text-white">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis saepe et ipsum ex perspiciatis quae, optio ipsam rerum consectetur tempore voluptates, est odit, architecto in suscipit ducimus dolorem molestiae!
-                </p>
+                </p> -->
                 <div class="text-start">
                   <a href="#" class="btn btn-outline-light btn-main"><i class="bi bi-info-circle"></i> Tentang Kami</a>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-7">
                 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -138,17 +141,81 @@
             </div> -->
         </div>
     </section>
-    <section class="section section-2"  id="properties">
+    <section class="section section-2 shadow-lg"  id="properties">
       <h2 class="text-center fs-2" >Produk Kami</h2>
-        <div class="container" id="productList">
+        <div class="container py-4" id="productList">
             
         </div>
     </section>
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="text-white" >Contact Us</h2>
+    <section class="section" id="about" >
+      <div class="container py-5">
+        <div class="row align-items-center">
+            <!-- Image Section -->
+            <div class="col-md-6 text-center">
+                <div class="rounded-image">
+                    <img src="https://placehold.co/400" alt="Team" class="img-fluid mb-3">
+                </div>
+                <div class="rounded-image">
+                    <img src="https://placehold.co/200" alt="Property" class="img-fluid">
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="col-md-6 text-white">
+                <p class="text-uppercase">About Us</p>
+                <h2 class="section-title">About our Real Estate Firm</h2>
+                <p>Our mission is simple, to provide unparalleled expertise, guidance, and support to our clients across their real estate journey.</p>
+
+                <!-- Features List -->
+                <div class="feature-item">
+                    <span class="icon">&#36;</span>
+                    <div>
+                        <h5>Affordable Price</h5>
+                        <p>Offering competitive rates that make quality accessible to all.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="icon">&#9733;</span>
+                    <div>
+                        <h5>Clear Legality</h5>
+                        <p>Ensuring transparent and compliant legal processes.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="icon">&#128101;</span>
+                    <div>
+                        <h5>Experienced Agents</h5>
+                        <p>Guided by professionals with expertise in the industry.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+  </section>
+
+    <footer class="py-3" >
+      <div class="container text-center">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-md-4 mb-2">
+            <img src="./images/logo.jpg" class="img-fluid w-25 rounded-circle shadow" alt="">
+          </div>
+          <div class="col-md-4 mb-2 d-flex flex-column justify-content-start text-start">
+            <p class="fw-bold"><i class="bi bi-telephone"></i> Hubungi Kami</p>
+            <a href="#" class="footer-link mb-2"><span class="text-primary"><i class="bi bi-facebook"></i></span> Dynamic Artha Sejahtera</a>
+            <a href="#" class="footer-link mb-2"><span class="text-success"><i class="bi bi-whatsapp"></i></span> 0821 1111 2222</a>
+            <a href="#" class="footer-link mb-2"><span class="text-danger"><i class="bi bi-instagram"></i></span> Dynamic Sejahtera</a>
+          </div>
+          <div class="col-md-4 mb-2 text-start">
+            <p class="fw-bold"><i class="bi bi-geo-alt"></i> Alamat Kami</p>
+            <p class="text-start">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam saepe unde, nostrum vero deserunt voluptatem ea qui soluta nisi.</p>
+          </div>
+        </div>
+        <hr>
+        <p>Copyright Dynamic Artha Sejahtera&copy; 2025 </p>
+      </div>
+    </footer>
 
 
     <!-- Modal -->
@@ -193,6 +260,13 @@
                             <p class="mb-0" id="cicilanPerBln"></p>
                           </td>
                         </tr>
+                        <tr>
+                          <th scope="row">Benefits</th>
+                          <td>:</td>
+                          <td>
+                            <div class="d-flex flex-column justify-content-start" id="produkBenefit" ></div>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -201,8 +275,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button class="btn btn-outline-darik"> <span class="text-success"><i class="bi bi-whatsapp"></i></span> Hubungi Sekarang</button>
           </div>
         </div>
       </div>

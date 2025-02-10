@@ -24,7 +24,23 @@ function changeModalContent(id) {
     modalDataHarga.innerText = formatRupiah(dataProduct[id].harga);
     
     mapCicilan(dataProduct[id].cicilan);
+    mapBenefit(dataProduct[id].kelebihan);
 }
+
+//fungsi untuk map benefit
+function mapBenefit(data){
+  var benefitContainer = document.getElementById('produkBenefit');
+  benefitContainer.innerHTML = "";
+
+  data.forEach((benefit)=>{
+    var txtBenefit = document.createElement('p');
+    txtBenefit.classList.add('mb-0');
+
+    txtBenefit.innerHTML = `<span class="text-${benefit.color}"><i class="bi ${benefit.icon}"></i></span> ${benefit.benefit}`;
+    benefitContainer.appendChild(txtBenefit);
+  });
+}
+
 
 //fungsi untuk map cicilan
 function mapCicilan(data) {
@@ -57,7 +73,7 @@ function tampilkanProduk() {
     dataProduct.forEach((produk, index) => {
         var card = document.createElement("div");
         var produkElement = document.createElement("div");
-        card.classList.add('card','mb-3','shadow');
+        card.classList.add('card','mb-3','shadow', 'card-product');
         produkElement.classList.add("card-body");
         card.appendChild(produkElement);
 
@@ -71,7 +87,7 @@ function tampilkanProduk() {
         <h3 class="fs-2">${produk.nama}</h3>
         <p class="fs-6">${produk.deskripsi}</p>
         <div>
-          <button class="btn btn-primary" onclick="changeModalContent(${index})" data-bs-toggle="modal" data-bs-target="#productModal" type="button">Lihat Detail</button>
+          <button class="btn btn-outline-success" onclick="changeModalContent(${index})" data-bs-toggle="modal" data-bs-target="#productModal" type="button">Lihat Detail <i class="bi bi-arrow-right"></i></button>
         </div>
       </div>
     </div>`;
@@ -82,6 +98,25 @@ function tampilkanProduk() {
 
 // Panggil fungsi untuk menampilkan produk saat halaman dimuat
 document.addEventListener("DOMContentLoaded", tampilkanProduk);
+
+const cardContainer = document.getElementById('productList');
+const cardProduct = document.querySelectorAll('.card-product');
+
+
+function checkVisibility() {
+  const boxPosition = cardContainer.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+
+  // Jika elemen masuk ke viewport
+  if (boxPosition.top < viewportHeight && boxPosition.bottom >= 0) {
+    cardProduct.forEach(elemen =>{
+      elemen.classList.add('visible');
+    })
+    window.removeEventListener('scroll', checkVisibility); // Hentikan listener setelah animasi dipicu
+  }
+}
+
+window.addEventListener('scroll', checkVisibility);
 
 function formatRupiah(angka) {
     // Mengonversi angka ke string dan membaliknya untuk memudahkan pemisahan ribuan
@@ -113,21 +148,38 @@ var dataProduct = [
             {"jmlTahun": 15, "perBln": 1779000},
             {"jmlTahun": 20, "perBln": 1445000}
         ],
-        "sukuBunga" : "5%/thn",
-        "deskripsi": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis saepe et ipsum ex perspiciatis quae, optio ipsam rerum consectetur tempore voluptates, est odit, architecto in suscipit ducimus dolorem molestiae!",
-    },
-    {
-        "id": 2,
-        "nama": "Pesona Ariana",
-        "harga": 300000000,
-        "gambar": "house1.jpg",
-        "cicilan" : [
-            {"jmlTahun": 10, "perBln": 30000},
-            {"jmlTahun": 15, "perBln": 25000},
-            {"jmlTahun": 20, "perBln": 20000},
-            {"jmlTahun": 25, "perBln": 20000}
+        "kelebihan" : [
+          {'icon' : 'bi-check-circle-fill','color':'success' ,'benefit':'Benefit 1'},
+          {'icon' : 'bi-geo-alt','color':'secondary' ,'benefit':'Benefit 2'},
+          {'icon' : 'bi-check-circle-fill','color':'danger' ,'benefit':'Benefit 3'},
+          {'icon' : 'bi-check-circle-fill','color':'primary' ,'benefit':'Benefit 4'},
+          {'icon' : 'bi-check-circle-fill','color':'light' ,'benefit':'Benefit 5'},
+          
         ],
         "sukuBunga" : "5%/thn",
         "deskripsi": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis saepe et ipsum ex perspiciatis quae, optio ipsam rerum consectetur tempore voluptates, est odit, architecto in suscipit ducimus dolorem molestiae!",
     },
+    {
+        "id": 1,
+        "nama": "Pesona Ariana",
+        "harga": 320000000,
+        "gambar": "house1.jpg",
+        "cicilan" : [
+            {"jmlTahun": 5, "perBln": 5400000},
+            {"jmlTahun": 10, "perBln": 2670000},
+            {"jmlTahun": 15, "perBln": 1779000},
+            {"jmlTahun": 20, "perBln": 1445000}
+        ],
+        "kelebihan" : [
+          {'icon' : 'bi-check-circle-fill','color':'success' ,'benefit':'Benefit 1'},
+          {'icon' : 'bi-check-circle-fill','color':'secondary' ,'benefit':'Benefit 2'},
+          {'icon' : 'bi-check-circle-fill','color':'danger' ,'benefit':'Benefit 3'},
+          {'icon' : 'bi-check-circle-fill','color':'primary' ,'benefit':'Benefit 4'},
+          {'icon' : 'bi-check-circle-fill','color':'light' ,'benefit':'Benefit 5'},
+          
+        ],
+        "sukuBunga" : "5%/thn",
+        "deskripsi": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis saepe et ipsum ex perspiciatis quae, optio ipsam rerum consectetur tempore voluptates, est odit, architecto in suscipit ducimus dolorem molestiae!",
+    },
+    
 ]
