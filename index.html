@@ -29,7 +29,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand col-lg-3 me-0 h2 fs-4" href="#">Dynamic Artha Sejahtera</a>
+        <a class="navbar-brand col-lg-3 me-0 h2 fs-4" href="#">
+          <img src="./images/das.jpg"  width="50" alt="">
+          Dynamic Artha Sejahtera
+        </a>
         <div class="navbar-collapse collapse d-lg-flex" id="navbarsExample11">
           <a class="navbar-brand col-lg-3 me-0" href="#"></a>
           
@@ -89,7 +92,7 @@
                     <div class="carousel-item active">
                       <div class="card shadow-lg d-block m-3" >
                         <div class="card-body text-center">
-                          <img src="https://decorindoperkasa.com/wp-content/uploads/2024/08/rumah-minimalis-sederhana.jpg" class="rounded img-hero" alt="">
+                          <img src="./images/house1.jpg" class="rounded img-hero" alt="">
                         </div>
                       </div>
                     </div>
@@ -101,13 +104,13 @@
                         </div>
                       </div>
                     </div>
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                       <div class="card shadow-lg d-block m-3" >
                         <div class="card-body text-center">
-                          <img src="https://decorindoperkasa.com/wp-content/uploads/2024/08/rumah-minimalis-sederhana.jpg" class="rounded img-hero" alt="">
+                          <img src="./images/ariana-ruang-tamu.jpg" class="rounded img-hero" alt="">
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
@@ -144,7 +147,6 @@
     <section class="section section-2 shadow-lg"  id="properties">
       <h2 class="text-center fs-2" >Produk Kami</h2>
         <div class="container py-4" id="productList">
-            
         </div>
     </section>
     <section class="section" id="about" >
@@ -153,10 +155,7 @@
             <!-- Image Section -->
             <div class="col-md-6 text-center">
                 <div class="rounded-image">
-                    <img src="https://placehold.co/400" alt="Team" class="img-fluid mb-3">
-                </div>
-                <div class="rounded-image">
-                    <img src="https://placehold.co/200" alt="Property" class="img-fluid">
+                    <img src="./images/das.jpg" alt="Team" class="img-fluid mb-3">
                 </div>
             </div>
 
@@ -209,7 +208,7 @@
           </div>
           <div class="col-md-4 mb-2 text-start">
             <p class="fw-bold"><i class="bi bi-geo-alt"></i> Alamat Kami</p>
-            <p class="text-start">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil veniam saepe unde, nostrum vero deserunt voluptatem ea qui soluta nisi.</p>
+            <p class="text-start">Ruko Astama, Jl. Perumahan Tera Damai No.31 blok RA 2, Sriamur, Kec. Tambun Utara, Kabupaten Bekasi, Jawa Barat 17510</p>
           </div>
         </div>
         <hr>
@@ -230,7 +229,29 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-5 text-center">
-                  <img src="./images/house1.jpg" class="rounded img-hero"alt="">
+                  <div id="carouselProductImage" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carousel-data">
+
+                     
+                      <!-- <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="2000">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div> -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductImage" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselProductImage" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
                 </div>
                 <div class="col-md-7 text-start">
                   <div class="table-responsive">
@@ -239,7 +260,7 @@
                         <tr>
                           <th scope="row">Nama Perumahan</th>
                           <td>:</td>
-                          <td><p class="mb-0" id="dataTitle"></p></td>
+                          <td><p class="mb-0 fw-bold border-bottom border-1" id="dataTitle"></p></td>
                         </tr>
                         <tr>
                           <th scope="row">Harga</th>

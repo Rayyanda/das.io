@@ -25,6 +25,53 @@ function changeModalContent(id) {
     
     mapCicilan(dataProduct[id].cicilan);
     mapBenefit(dataProduct[id].kelebihan);
+    carouselCard(dataProduct[id].gambar);
+}
+
+//fungsi untuk membuat carousel gambar pada card
+function carouselCard(data) {
+  var carouselCard = document.getElementById('carousel-data');
+  carouselCard.innerHTML = "";
+
+  data.forEach((gambar, index)=>{
+    //membuat carousel item container
+    var carouselItemContainer = document.createElement('div');
+    if(index == 0){
+      carouselItemContainer.classList.add('carousel-item', 'active');
+    }else{
+      carouselItemContainer.classList.add('carousel-item');
+    }
+
+    //set atribut
+    carouselItemContainer.setAttribute('data-bs-interval','10000')
+
+    //memuat gambar
+    var carouselImage = document.createElement('img');
+    carouselImage.classList.add('d-block','w-100');
+    carouselImage.src = `./images/${gambar.file}`;
+    carouselImage.alt = gambar.file;
+
+    //membuat element div untuk caption
+    var carouselCaption = document.createElement('div');
+    carouselCaption.classList.add('carousel-caption','d-none','d-md-block');
+
+    //membuat elemen untuk caption
+    var carouselCaptionText = document.createElement('p');
+    carouselCaptionText.classList.add('mb-0');
+    carouselCaptionText.innerText = gambar.nama;
+
+    carouselCaption.appendChild(carouselCaptionText);
+
+    //menambahkan carousel item ke carousel container
+    carouselItemContainer.appendChild(carouselImage);
+    
+    //menambahkan carousel caption ke carousel container
+    carouselItemContainer.appendChild(carouselCaption);
+
+    //menambahkan carousel container kedalam carousel card
+    carouselCard.appendChild(carouselItemContainer);
+
+  });
 }
 
 //fungsi untuk map benefit
@@ -80,7 +127,9 @@ function tampilkanProduk() {
         produkElement.innerHTML = `<div class="row my-2">
       <div class="col-md-5">
         <div class="d-flex justify-content-center">
-          <img src="./images/${produk.gambar}" class="rounded img-product" alt="">
+            <div class="image-container">
+              <img src="./images/${produk.gambar[0].file}" class="rounded img-product img-thumbnail" alt="">
+            </div>
         </div>
       </div>
       <div class="col-md-7 d-flex flex-column">
@@ -141,7 +190,14 @@ var dataProduct = [
         "id": 1,
         "nama": "Kav. Dynamic Sejahtera",
         "harga": 320000000,
-        "gambar": "house1.jpg",
+        "gambar": [
+          {'file': 'kds-tampak-depan.jpg','nama': 'Tampak Depan'},
+          {'file': 'kds-dapur.jpg','nama':'Dapur'},
+          {'file': 'kds-kamar-mandi.jpg','nama':'Kamar Mandi'},
+          {'file': 'kds-kamar.jpg','nama':'Kamar 1'},
+          {'file': 'kds-kamar2.jpg','nama':'Kamar 2'},
+          {'file': 'kds-ruang-tamu.jpg','nama':'Ruang Tamu'},
+        ],
         "cicilan" : [
             {"jmlTahun": 5, "perBln": 5400000},
             {"jmlTahun": 10, "perBln": 2670000},
@@ -163,7 +219,15 @@ var dataProduct = [
         "id": 1,
         "nama": "Pesona Ariana",
         "harga": 320000000,
-        "gambar": "house1.jpg",
+        "gambar": [
+          {'file': 'ariana-tampak-depan.jpg','nama':'Tampak Depan'},
+          {'file': 'ariana-dapur.jpg','nama':'Dapur'},
+          {'file': 'ariana_kamar-mandi.jpg','nama':'Kamar Mandi'},
+          {'file': 'ariana-kamar.jpg','nama':'Kamar 1'},
+          {'file': 'ariana-kamar-2.jpg','nama':'Kamar 2'},
+          {'file': 'ariana-ruang-tamu.jpg','nama':'Ruang Tamu'},
+
+        ],
         "cicilan" : [
             {"jmlTahun": 5, "perBln": 5400000},
             {"jmlTahun": 10, "perBln": 2670000},
